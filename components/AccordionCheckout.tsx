@@ -9,7 +9,6 @@ const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 export default function AccordionCheckout() {
   const [open, setOpen] = useState(false);
   const animation = useRef(new Animated.Value(0)).current;
-  console.log('🚀 ~ AccordionCheckout ~ open:', open);
 
   function toggleAccordion() {
     if (!open) {
@@ -36,11 +35,6 @@ export default function AccordionCheckout() {
   const widthAnimationInterpolation = animation.interpolate({
     inputRange: [0, 1],
     outputRange: [237, 370],
-  });
-
-  const opacityAnimationInterpolation = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 0],
   });
 
   return (
@@ -208,16 +202,13 @@ export default function AccordionCheckout() {
             </Text>
           </View>
           <Animated.View
-            style={[
-              {
-                width: '100%',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: 16,
-              },
-              {opacity: opacityAnimationInterpolation},
-            ]}>
+            style={{
+              width: '100%',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: 8,
+            }}>
             <Text
               style={{
                 fontSize: 14,
